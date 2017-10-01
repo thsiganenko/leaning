@@ -47,3 +47,33 @@ def quick(sequence: list) -> list:
             less.append(value)
 
     return quick(less) + [base] + quick(greater)
+
+
+def merge(sequence: list) -> list:
+    if len(sequence) < 2:
+        return sequence
+
+    middle = len(sequence) // 2
+    right = merge(sequence[:middle])
+    left = merge(sequence[middle:])
+
+    result = []
+
+    while True:
+        if right and left:
+            if right[0] < left[0]:
+                result.append(right.pop(0))
+            else:
+                result.append(left.pop(0))
+        else:
+            break
+
+    if right:
+        result.extend(right)
+    if left:
+        result.extend(left)
+
+    return result
+
+        
+
