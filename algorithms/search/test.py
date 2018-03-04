@@ -35,5 +35,6 @@ class TestForBinarySearch(TestCase):
             with self.subTest(num=num):
                 self.assertIsNone(binary_search(data, num))
 
+
 if __name__ == '__main__':
     main()

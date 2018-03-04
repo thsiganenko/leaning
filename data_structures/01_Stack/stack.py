@@ -5,8 +5,9 @@ class Node():
         self.value = value
         self.next_node = next_node
 
+
 class Stack():
-    
+    """Структура данных: Стек"""
     def __init__(self):
         self._head = None
         self._size = 0
@@ -32,5 +33,5 @@ class Stack():
             return None
         return self._head.value
 
-    def isEmpty(self):
+    def is_empty(self):
         return self._head is None
