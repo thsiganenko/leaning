@@ -1,16 +1,13 @@
 def bubble(sequence: list) -> list:
-    '''Сортировка пузырьком'''
+    """Сортировка пузырьком"""
     lst = sequence[:]
     length = len(lst)
-
     for i in range(length):
         exchange = False
-        
         for j in range(length - i - 1):
             if lst[j] > lst[j+1]:
                 lst[j], lst[j+1] = lst[j+1], lst[j]
                 exchange = True
-
         if not exchange:
             break
 
@@ -18,10 +15,9 @@ def bubble(sequence: list) -> list:
 
 
 def selection(sequence: list) -> list:
-    '''Сортировка выбором'''
+    """Сортировка выбором"""
     source = sequence[:]
     result = []
-
     while source:
         min_value, position = source[0], 0
         for i, value in enumerate(source):
@@ -33,10 +29,9 @@ def selection(sequence: list) -> list:
 
 
 def quick(sequence: list) -> list:
-    '''Быстрая сортировка'''
+    """Быстрая сортировка"""
     if len(sequence) < 2:
         return sequence
-
     base = sequence.pop(len(sequence) // 2)
     greater = []
     less = []
@@ -50,6 +45,7 @@ def quick(sequence: list) -> list:
 
 
 def merge(sequence: list) -> list:
+    """Сортировка слиянием"""
     if len(sequence) < 2:
         return sequence
 
@@ -58,7 +54,6 @@ def merge(sequence: list) -> list:
     left = merge(sequence[middle:])
 
     result = []
-
     while True:
         if right and left:
             if right[0] < left[0]:
@@ -74,6 +69,3 @@ def merge(sequence: list) -> list:
         result.extend(left)
 
     return result
-
-        
-
